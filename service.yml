@@ -1,12 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample-app-service
+  name: python-hello-world
+  namespace: razeedeploy
+  labels:
+    app: python-hello-world
 spec:
   selector:
-    app: sample-app
+    app: python-hello-world
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 5000
   type: ClusterIP
